@@ -1,9 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 // import "./App.css";
 // import "./character-cards.css";
 import "./character-ratings.css";
+import { CharacterCardFunction } from "./components/CharacterCardFunction";
+import { ItemCardClass } from "./components/ItemCardClass";
 // import "./header.css";
 // import "./reset.css";
 // import "./style.css";
@@ -111,43 +110,6 @@ const cards = [
 ];
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const topCharacters = characters.map((character, characterIndex) => {
-    const adjustedIndex = characterIndex + 1;
-    const isSecond = adjustedIndex % 2 === 0;
-    return (
-      <tr
-        className={`character ${isSecond ? "light" : "dark"}`}
-        key={character.name}
-      >
-        <td>{character.name}</td>
-        <td>{character.skillset}</td>
-        <td>{character.votes}</td>
-      </tr>
-    );
-  });
-
-  const itemDetail = cards.map((card) => {
-    return (
-      <div className="card" key={card.name}>
-        {/* <!-- Card 1 --> */}
-        <div className="card-titles">
-          {/* <!-- name --> */}
-          <h3>{card.name}</h3>
-          {/* <!-- nickname --> */}
-          <h4>{card.nickname}</h4>
-        </div>
-        {/* <!-- imageUrl --> */}
-        <img src={card.image} alt="" />
-        <p>
-          {/* <!-- description --> */}
-          {card.details}
-        </p>
-      </div>
-    );
-  });
-
   return (
     <>
       <section id="character-ratings">
@@ -161,35 +123,18 @@ function App() {
             </tr>
           </thead>
 
-          <tbody>{topCharacters}</tbody>
+          <tbody>
+            <CharacterCardFunction characters={characters} />
+          </tbody>
         </table>
       </section>
-      ;<section id="character-cards">{itemDetail}</section>;
+      ;
+      <section id="character-cards">
+        <ItemCardClass cards={cards} />
+      </section>
+      ;
     </>
   );
-
-  // <>
-  //   <div>
-  //     <a href="https://vitejs.dev">
-  //       <img src={viteLogo} className="logo" alt="Vite logo" />
-  //     </a>
-  //     <a href="https://react.dev">
-  //       <img src={reactLogo} className="logo react" alt="React logo" />
-  //     </a>
-  //   </div>
-  //   <h1>Vite + React</h1>
-  //   <div className="card">
-  //     <button onClick={() => setCount((count) => count + 1)}>
-  //       count is {count}
-  //     </button>
-  //     <p>
-  //       Edit <code>src/App.jsx</code> and save to test HMR
-  //     </p>
-  //   </div>
-  //   <p className="read-the-docs">
-  //     Click on the Vite and React logos to learn more
-  //   </p>
-  // </>
 }
 
 export default App;
