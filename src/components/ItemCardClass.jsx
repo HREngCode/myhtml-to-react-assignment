@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-export class ItemCardClass extends Component {
+class ItemCardClass extends Component {
   render() {
     const { cards } = this.props;
     const itemDetail = cards.map((card) => {
@@ -8,10 +8,10 @@ export class ItemCardClass extends Component {
         <div className="card" key={card.name}>
           <div className="card-titles">
             <h3>{card.name}</h3>
-            <h4>{card.nickname}</h4>
+            <h4>{card.nickName}</h4>
           </div>
-          <img src={card.image} alt="" />
-          <p>{card.details}</p>
+          <img src={card.imageUrl} alt="" />
+          <p>{card.background}</p>
         </div>
       );
     });
@@ -19,3 +19,5 @@ export class ItemCardClass extends Component {
     return <>{itemDetail}</>;
   }
 }
+
+export default ItemCardClass;
