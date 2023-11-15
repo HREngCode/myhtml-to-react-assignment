@@ -3,7 +3,7 @@ import { Component } from "react";
 class ItemCardClass extends Component {
   render() {
     const { cards } = this.props;
-    const itemDetail = cards.map((card) => {
+    return cards.map((card) => {
       return (
         <div className="card" key={card.name}>
           <div className="card-titles">
@@ -15,8 +15,6 @@ class ItemCardClass extends Component {
         </div>
       );
     });
-
-    return <>{itemDetail}</>;
   }
 }
 
