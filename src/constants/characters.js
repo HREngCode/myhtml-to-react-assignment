@@ -1,4 +1,4 @@
-export const DATA = [
+export const characters = [
   {
     name: "Alex Louis Armstrong",
     nickName: "Major Armstrong",

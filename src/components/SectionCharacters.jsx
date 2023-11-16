@@ -1,10 +1,10 @@
-import ItemCardClass from "./ItemCardClass";
+import CharacterCards from "./CharacterCards";
 import "../character-cards.css";
 
 const SectionCharacters = ({ characters }) => {
   return (
     <section id="character-cards">
-      <ItemCardClass cards={characters} />
+      <CharacterCards characterCards={characters} />
     </section>
   );
 };
